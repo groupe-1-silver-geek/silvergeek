@@ -1,4 +1,4 @@
 class Participation < ApplicationRecord
-  belongs_to :activity
-  belongs_to :senior
+  has_many :seniors
+  has_many :activities
 end
