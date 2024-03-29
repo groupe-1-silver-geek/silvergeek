@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @senior %>
+
+<div>
+  <%= link_to "Edit this senior", edit_senior_path(@senior) %> |
+  <%= link_to "Back to seniors", seniors_path %>
+
+  <%= button_to "Destroy this senior", @senior, method: :delete %>
+</div>
