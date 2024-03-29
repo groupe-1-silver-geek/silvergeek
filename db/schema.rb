@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_29_093832) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_29_100047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,8 +24,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_093832) do
     t.string "otherDevice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "animator"
+    t.bigint "structure_id", null: false
     t.index ["device_id"], name: "index_activities_on_device_id"
     t.index ["game_id"], name: "index_activities_on_game_id"
+    t.index ["structure_id"], name: "index_activities_on_structure_id"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -38,6 +41,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_093832) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "activity_id", null: false
+    t.bigint "senior_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_participations_on_activity_id"
+    t.index ["senior_id"], name: "index_participations_on_senior_id"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -64,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_093832) do
     t.bigint "partner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kind"
     t.index ["partner_id"], name: "index_structures_on_partner_id"
   end
 
@@ -76,12 +89,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_29_093832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin"
+    t.bigint "partner_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["partner_id"], name: "index_users_on_partner_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "activities", "devices"
   add_foreign_key "activities", "games"
+  add_foreign_key "activities", "structures"
+  add_foreign_key "participations", "activities"
+  add_foreign_key "participations", "seniors"
   add_foreign_key "seniors", "structures"
   add_foreign_key "structures", "partners"
+  add_foreign_key "users", "partners"
 end
