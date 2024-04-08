@@ -1,5 +1,6 @@
 class StructuresController < ApplicationController
   before_action :set_structure, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /structures or /structures.json
   def index
