@@ -4,4 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :partner
+
+
+
+  def admin?
+    self.admin
+  end
+
+  def partner?
+    self.partner
+  end
+
 end
