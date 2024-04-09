@@ -10,23 +10,16 @@
 
 # Create a default admin user
 
-user = User.where(email: "example@test.fr").first_or_initialize
-user.password = "password"
+user = User.where(email: "example@test.fr").first_or_initialize do
+    user.password = "password"
+end
 user.admin =  true
 user.save
 
+["Wii", "Switch", "Ps2", "Pc"].each do |device_name|
+    Device.find_or_create_by!(name: device_name)
+end
 
-
-Device.create!([
-    { name: "Wii" },
-    { name: "Switch" },
-    { name: "Ps2" },
-    { name: "Pc" }
-])
-
-Game.create!([
-    { name: "Mario Bross 2 " },
-    { name: "Sonic" },
-    { name: "Mii party" },
-    { name: "JustDance" }
-])
+["Mario Bross", "Sonic", "Mii party", "JustDance"].each do |game_name|
+    Game.find_or_create_by!(name: game_name)
+end
