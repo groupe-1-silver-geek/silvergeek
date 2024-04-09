@@ -10,6 +10,14 @@
   .font-roboto {
     font-family: 'Roboto', sans-serif;
   }
+
+  .color-blue{
+    background-color: #01385E;
+  }
+
+  .color-blue:hover{
+    background-color: #001C2F;
+  }
 }
 
 
