@@ -22,6 +22,12 @@
   <% end %>
   <h1 class="text-3xl font-roboto">Ajouter une Structure</h1>
 
+<div>
+  <%= form.label :region_id, style: "display: block", class: "text-xs" %>
+  <%= select_tag "region", options_from_collection_for_select(@regions, :id, :name), class:  "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent js-select2" %>
+</div>
+
+
   <div>
     <%= form.label :Adresse, style: "display: block" %>
     <%= form.text_field :adress, placeholder: "Adresse", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>

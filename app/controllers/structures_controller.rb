@@ -16,6 +16,7 @@ class StructuresController < ApplicationController
 
   # GET /structures/new
   def new
+    @regions = Region.all
     @structure = Structure.new
   end
 
