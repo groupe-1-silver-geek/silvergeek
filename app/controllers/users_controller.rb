@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!, :ensure_admin
 
-    protected
-    
-    def ensure_admin
-      redirect_to root_path unless current_user.admin?
-    end
- 
     def index
         @users = User.all
     end
@@ -27,5 +21,9 @@ class UsersController < ApplicationController
         redirect_to users_url, notice: 'Le compte a bien été supprimé.'
     end
 
-
+    protected
+    
+    def ensure_admin
+      redirect_to root_path unless current_user.admin?
+    end
 end
