@@ -3,7 +3,9 @@ class SeniorsController < ApplicationController
 
   # GET /seniors or /seniors.json
   def index
-    @seniors = Senior.all
+    @term = params[:term]
+    @seniors = @term.blank? ? Senior.all
+                            : Senior.where("pseudo ILIKE (?)", "%#{@term}%")
   end
 
   # GET /seniors/1 or /seniors/1.json
