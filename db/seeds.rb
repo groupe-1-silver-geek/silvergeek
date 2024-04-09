@@ -10,8 +10,9 @@
 
 # Create a default admin user
 
-user = User.where(email: "example@test.fr").first_or_initialize
-user.password = "password"
+user = User.where(email: "example@test.fr").first_or_initialize do
+    user.password = "password"
+end
 user.admin =  true
 user.save
 

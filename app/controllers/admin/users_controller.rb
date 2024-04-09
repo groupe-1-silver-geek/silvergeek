@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-    before_action :authenticate_user!, :ensure_admin
+class Admin::UsersController < Admin::ApplicationController
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def index
         @users = User.all
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     protected
     
-    def ensure_admin
-      redirect_to root_path unless current_user.admin?
+    def set_user
+      @user = User.find(params[:id])
     end
 end
