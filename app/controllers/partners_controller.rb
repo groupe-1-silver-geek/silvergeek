@@ -5,6 +5,10 @@ class PartnersController < ApplicationController
   # GET /partners or /partners.json
   def index
     @partners = Partner.all
+    @term = params[:term]
+    @partners = @term.blank? ? Partner.all
+                             : Partner.where("name ILIKE (?)", "%#{@term}%")
+
   end
 
   # GET /partners/1 or /partners/1.json

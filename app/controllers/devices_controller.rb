@@ -4,6 +4,10 @@ class DevicesController < ApplicationController
   # GET /devices or /devices.json
   def index
     @devices = Device.all
+    @term = params[:term]
+    @devices = @term.blank? ? Device.all
+                             : Device.where("name ILIKE (?)", "%#{@term}%")
+
   end
 
   # GET /devices/1 or /devices/1.json

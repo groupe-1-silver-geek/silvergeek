@@ -4,7 +4,10 @@ class StructuresController < ApplicationController
 
   # GET /structures or /structures.json
   def index
-    @structures = Structure.all
+    @term = params[:term]
+    @structures = @term.blank? ? Structure.all
+                               : Structure.where("partners.name ILIKE (?)", "%#{@term}%")
+
   end
 
   # GET /structures/1 or /structures/1.json
