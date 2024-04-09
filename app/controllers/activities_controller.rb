@@ -18,6 +18,8 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+    @devices = Device.all
+    @games = Game.all
   end
 
   # GET /activities/1/edit

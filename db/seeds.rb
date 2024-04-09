@@ -14,4 +14,19 @@ user = User.where(email: "example@test.fr").first_or_initialize
 user.password = "password"
 user.admin =  true
 user.save
-    
+
+
+
+Device.create!([
+    { name: "Wii" },
+    { name: "Switch" },
+    { name: "Ps2" },
+    { name: "Pc" }
+])
+
+Game.create!([
+    { name: "Mario Bross 2 " },
+    { name: "Sonic" },
+    { name: "Mii party" },
+    { name: "JustDance" }
+])
