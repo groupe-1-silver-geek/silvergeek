@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :activities
   resources :devices
   resources :games
-  # resources :users, only: [:index, :show, :edit, :update, :destroy]
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
+  end
 
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
