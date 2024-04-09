@@ -6,7 +6,7 @@ class StructuresController < ApplicationController
   def index
     @term = params[:term]
     @structures = @term.blank? ? Structure.all
-                               : Structure.where("partners.name ILIKE (?)", "%#{@term}%")
+                               : Structure.where("name ILIKE (?)", "%#{@term}%")
 
   end
 
