@@ -44,12 +44,17 @@
 
   <div>
   <%= form.label :game_id, style: "display: block", class: "text-xs" %>
-  <%= select_tag "games", options_from_collection_for_select(@games, :id, :name), class:  "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent js-select2" %>
+  <%= form.select :game_id, options_from_collection_for_select(@games, :id, :name), {}, { class:  "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent js-select2" } %>
 </div>
 
   <div>
     <%= form.label :device_id, style: "display: block", class: "text-xs " %>
-    <%= select_tag "devices", options_from_collection_for_select(@devices, :id, :name), class:  "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent js-select2" %>
+    <%= form.select :device_id, options_from_collection_for_select(@devices, :id, :name), {}, { class:  "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent js-select2" } %>
+    </div>
+
+  <div>
+    <%= form.label :structure_id, style: "display: block", class: "text-xs " %>
+    <%= form.select :structure_id, options_from_collection_for_select(@structures, :id, :name), {}, { class:  "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent js-select2" } %>
     </div>
 
   <div>

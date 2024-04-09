@@ -19,6 +19,7 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
     @devices = Device.all
+    @structures = Structure.accessible_by(current_ability)
     @games = Game.all
   end
 
@@ -35,7 +36,12 @@ class ActivitiesController < ApplicationController
         format.html { redirect_to activity_url(@activity), notice: "Activity was successfully created." }
         format.json { render :show, status: :created, location: @activity }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html {
+          @devices = Device.all
+          @games = Game.all
+          @structures = Structure.accessible_by(current_ability)
+          render :new, status: :unprocessable_entity
+        }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end
@@ -48,7 +54,12 @@ class ActivitiesController < ApplicationController
         format.html { redirect_to activity_url(@activity), notice: "Activity was successfully updated." }
         format.json { render :show, status: :ok, location: @activity }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html {
+          @devices = Device.all
+          @games = Game.all
+          @structures = Structure.accessible_by(current_ability)
+          render :edit, status: :unprocessable_entity
+        }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end
@@ -72,6 +83,6 @@ class ActivitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:name, :date, :description, :duration, :game_id, :device_id, :otherDevice)
+      params.require(:activity).permit(:name, :date, :description, :duration, :game_id, :device_id, :structure_id, :otherDevice)
     end
 end
