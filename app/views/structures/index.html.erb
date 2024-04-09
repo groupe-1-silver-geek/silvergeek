@@ -30,15 +30,26 @@
 
 </div>
 
-<input class="border-none shadow-2xl h-14 w-72 bg-white rounded-lg p-2 placeholder:text-blue-900 placeholder:text-base " type="search" placeholder="Rechercher un atelier ">
+<input class="border-none shadow-2xl h-14 w-72 bg-white rounded-lg p-2 placeholder:text-blue-900 placeholder:text-base " type="search" placeholder="Rechercher une structure ">
 
 
 
-<div id="structures">
-  <% @structures.each do |structure| %>
-    <%= render structure %>
-    <p>
-      <%= link_to "Show this structure", structure %>
-    </p>
+<% @structures.each do |structure| %>
+  <%= link_to structure_path(structure) do %>
+    <div class="text-base border-none shadow-2xl bg-white rounded-lg p-2 h-14 justify-between flex items-center hover:bg-slate-200">
+      <div class="flex-col">
+        <div class="text-xs text-gray-500">
+          <%= structure.zipCode %>
+        </div>
+        <div class="text-base">
+          <%= structure.partner.name %>
+        </div>
+      </div>
+      <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+        <path d="M12 3.5L10.4138 5.08625L16.6912 11.375H3V13.625H16.6912L10.4138 19.9137L12 21.5L21 12.5L12 3.5Z" fill="#01385E"/>
+      </svg>
+      </div>
+    </div>
   <% end %>
-</div>
+<% end %>

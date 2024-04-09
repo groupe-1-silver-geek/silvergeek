@@ -1,9 +1,9 @@
-<p style="color: green"><%= notice %></p>
+
 
 
 <div class="flex flex-col w-72  ml-auto mr-auto gap-5 mt-16 z-10 relative  ">
 
-
+<p style="color: green"><%= notice %></p>
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z" fill="#191919"/>
 </svg>
@@ -33,11 +33,13 @@
 <input class="border-none shadow-2xl h-14 w-72 bg-white rounded-lg p-2 placeholder:text-blue-900 placeholder:text-base " type="search" placeholder="Rechercher un partenaire ">
 
 
-<div id="partners">
-  <% @partners.each do |partner| %>
-    <%= render partner %>
-    <p>
-      <%= link_to "Show this partner", partner %>
-    </p>
+<% @partners.each do |partner| %>
+  <%= link_to partner_path(partner) do %>
+    <div class="text-base border-none shadow-2xl bg-white rounded-lg p-2 h-14 justify-between flex items-center hover:bg-slate-200">
+      <%= render partner %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+        <path d="M12 3.5L10.4138 5.08625L16.6912 11.375H3V13.625H16.6912L10.4138 19.9137L12 21.5L21 12.5L12 3.5Z" fill="#01385E"/>
+      </svg>
+    </div>
   <% end %>
-</div>
+<% end %>

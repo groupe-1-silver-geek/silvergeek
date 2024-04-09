@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
   # GET /activities or /activities.json
   def index
     @activities = Activity.all
+    @number_activities = Activity.count
   end
 
   # GET /activities/1 or /activities/1.json
