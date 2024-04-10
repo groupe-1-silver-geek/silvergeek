@@ -23,6 +23,8 @@ class StructuresController < ApplicationController
 
   # GET /structures/1/edit
   def edit
+    @regions = Region.all
+    @structure = Structure.new
   end
 
   # POST /structures or /structures.json
