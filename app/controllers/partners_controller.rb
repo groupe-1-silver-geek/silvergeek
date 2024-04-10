@@ -13,15 +13,18 @@ class PartnersController < ApplicationController
 
   # GET /partners/1 or /partners/1.json
   def show
+
   end
 
   # GET /partners/new
   def new
+    @regions = Region.all
     @partner = Partner.new
   end
 
   # GET /partners/1/edit
   def edit
+    @regions = Region.all
   end
 
   # POST /partners or /partners.json

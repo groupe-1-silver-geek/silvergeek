@@ -12,17 +12,21 @@ class StructuresController < ApplicationController
 
   # GET /structures/1 or /structures/1.json
   def show
+    @regions = Region.all
+
   end
 
   # GET /structures/new
   def new
     @regions = Region.all
+    @partners = Partner.all
     @structure = Structure.new
   end
 
   # GET /structures/1/edit
   def edit
     @regions = Region.all
+    @partners = Partner.all
     @structure = Structure.new
   end
 
@@ -35,7 +39,10 @@ class StructuresController < ApplicationController
         format.html { redirect_to structure_url(@structure), notice: "Structure was successfully created." }
         format.json { render :show, status: :created, location: @structure }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html {
+          @regions = Region.all
+          render :new, status: :unprocessable_entity 
+        }
         format.json { render json: @structure.errors, status: :unprocessable_entity }
       end
     end
@@ -72,6 +79,6 @@ class StructuresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def structure_params
-      params.require(:structure).permit(:adress, :zipCode, :city, :partner_id)
+      params.require(:structure).permit(:adress, :zipCode, :city, :partner_id, :name, :region_id)
     end
 end
