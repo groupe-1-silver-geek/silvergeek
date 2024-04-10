@@ -27,18 +27,18 @@
   </div>
 
   <div>
-    <%= form.label :gender, style: "display: block" %>
+    <%= form.label :genre, style: "display: block" %>
     <%= form.text_field :gender, placeholder: "Genre", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
   </div>
 
   <div>
-    <%= form.label :code, style: "display: block" %>
-    <%= form.number_field :code, placeholder: "Code postal", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
+    <%= form.label :code_postal, style: "display: block" %>
+    <%= form.number_field :code, placeholder: "Code postal", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent", min: 0, style: "appearance: textfield; -moz-appearance: textfield; -webkit-appearance: textfield;" %>
   </div>
 
   <div>
     <%= form.label :structure_id, style: "display: block" %>
-    <%= form.text_field :structure_id, placeholder: "Structure", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"   %>
+    <%= form.text_field :structure_id, placeholder: "Structure", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
   </div>
 
   <div class="color-blue flex p-4 rounded-lg justify-between items-center text-base text-white">
