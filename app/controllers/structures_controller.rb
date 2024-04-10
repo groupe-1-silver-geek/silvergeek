@@ -12,6 +12,7 @@ class StructuresController < ApplicationController
 
   # GET /structures/1 or /structures/1.json
   def show
+
   end
 
   # GET /structures/new
