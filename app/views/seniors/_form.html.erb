@@ -4,7 +4,17 @@
   <%= f.input :age, label: "Age", placeholder: "Age" %>
   <%= f.input :gender, label: "Genre", placeholder: "Genre" %>
   <%= f.input :code, label: "Code postal", placeholder: "Code postal"%>
+
   <%= f.association :structure, label: "Structure"%>
+
+
+
+<%
+=begin%>
+ <%= f.association :structure_id, label: "Structure"%>
+<%
+=end%>
+
 
   <div class="flex justify-between">
     <%= f.button :submit, 'Ajouter le senior', button_html: { class:'bg-blue-600 flex p-4 rounded-lg justify-center items-center text-base text-white h-12 w-48' } %>

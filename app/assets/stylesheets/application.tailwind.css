@@ -22,7 +22,12 @@
   .text-black{
     color: black;
   }
-}
+
+  .square{
+    width: 136px ;
+    height: 136px ;
+
+  }
 
 
 /*
