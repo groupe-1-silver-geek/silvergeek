@@ -22,12 +22,13 @@
 
 }
 
-input.bg-transparent {
-  background-color: transparent !important;
-  color: black;
-  opacity: 1;
-}
+
 
 input.text-black{
   color: #f9000000;
+}
+
+button.text-white{
+  color:#FFFF !important;
+
 }
