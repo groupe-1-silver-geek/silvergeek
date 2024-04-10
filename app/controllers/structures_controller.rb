@@ -17,16 +17,11 @@ class StructuresController < ApplicationController
 
   # GET /structures/new
   def new
-    @regions = Region.all
-    @partners = Partner.all
     @structure = Structure.new
   end
 
   # GET /structures/1/edit
   def edit
-    @regions = Region.all
-    @partners = Partner.all
-    @structure = Structure.new
   end
 
   # POST /structures or /structures.json
@@ -40,6 +35,7 @@ class StructuresController < ApplicationController
       else
         format.html {
           @regions = Region.all
+          @partners = Partner.all
           render :new, status: :unprocessable_entity 
         }
         format.json { render json: @structure.errors, status: :unprocessable_entity }
@@ -78,6 +74,6 @@ class StructuresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def structure_params
-      params.require(:structure).permit(:adress, :zipCode, :city, :partner_id, :name, :region_id)
+      params.require(:structure).permit(:adress, :zipCode, :city, :partner_id, :name)
     end
 end
