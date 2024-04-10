@@ -71,7 +71,7 @@
 <% if @structures.any? %>
   <% @structures.each do |structure| %>
     <%= link_to structure_path(structure) do %>
-    <div class="text-base border-none shadow-2xl bg-white rounded-lg p-2 h-14 justify-between flex items-center hover:bg-slate-200">
+    <div class="border-cyan-900 border-solid border-2 text-base shadow-2xl bg-white rounded-lg p-2 h-14 justify-between flex items-center hover:bg-slate-200">
       <div class="flex-col">
         <div class="text-xs text-gray-500">
           <%= structure.zipCode %>
