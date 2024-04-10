@@ -1,10 +1,182 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @activity %>
+<div class="flex flex-col w-72  ml-auto mr-auto gap-5 mt-16 z-10 relative mb-12  ">
+
+
+<%
+=begin%>
+  RETOUR VERS LA PAGE ULTERIEURE
+<%
+=end%>
+
+<div class="flex">
+
+    <%= link_to activities_path do %>
+        <%= content_tag(:svg, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24") do %>
+          <%= content_tag(:path, "", d: "M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z", fill: "#191919") %>
+        <% end %>
+    <% end %>
+
+  <p class="ml-2">Retour vers les ateliers</p>
+
+</div>
+
+<%
+=begin%>
+  TITRE DE LA PAGE
+<%
+=end%>
+
+<h1 class="text-3xl font-roboto font-bold">
+  <%= @activity.name %>
+</h1>
+
+<p><%= @activity.description %></p>
+
+<%
+=begin%>
+  BOUTON D'EDITION
+<%
+=end%>
+
+    <%= link_to edit_activity_path(@activity) do %>
+    <%= content_tag(:div, class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white") do %>
+    <p>Modifier l'atelier</p>
+      <%= content_tag(:svg, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24") do %>
+        <%= content_tag(:path, "", d: "M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z", fill: "white") %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<%
+=begin%>
+  DATE
+<%
+=end%>
+
+    <div class="flex justify-between">
+
+      <div class="mb-4 shadow-2xl bg-white w-32 h-32 rounded-lg p-4 hover:bg-slate-200">
+        <p class="text-base mb-2">Date</p>
+        <p class="truncate text-2xl font-bold  mb-2"><%= @activity.date %></p>
+        <div class="flex justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <mask id="mask0_1259_1862" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+              <rect width="24" height="24" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_1259_1862)">
+              <path d="M5.49446 21.4785C4.99946 21.4785 4.57571 21.3023 4.22321 20.9498C3.87071 20.5973 3.69446 20.1735 3.69446 19.6785V7.07852C3.69446 6.58352 3.87071 6.15977 4.22321 5.80727C4.57571 5.45477 4.99946 5.27852 5.49446 5.27852H6.39446V3.47852H8.19446V5.27852H15.3945V3.47852H17.1945V5.27852H18.0945C18.5895 5.27852 19.0132 5.45477 19.3657 5.80727C19.7182 6.15977 19.8945 6.58352 19.8945 7.07852V19.6785C19.8945 20.1735 19.7182 20.5973 19.3657 20.9498C19.0132 21.3023 18.5895 21.4785 18.0945 21.4785H5.49446ZM5.49446 19.6785H18.0945V10.6785H5.49446V19.6785ZM5.49446 8.87852H18.0945V7.07852H5.49446V8.87852Z" fill="#191919"/>
+            </g>
+          </svg>
+
+
+        </div>
+
+
+      </div>
+
+<%
+=begin%>
+  DUREE
+<%
+=end%>
+
+      <div class="mb-4 shadow-2xl bg-white w-32 h-32 rounded-lg p-4 hover:bg-slate-200">
+        <p class="text-base mb-2">Durée</p>
+        <p class="truncate text-2xl font-bold  mb-2"><%= @activity.duration %> h</p>
+        <div class="flex justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <g clip-path="url(#clip0_1259_1547)">
+              <path d="M11.991 3C7.023 3 3 7.032 3 12C3 16.968 7.023 21 11.991 21C16.968 21 21 16.968 21 12C21 7.032 16.968 3 11.991 3ZM12 19.2C8.022 19.2 4.8 15.978 4.8 12C4.8 8.022 8.022 4.8 12 4.8C15.978 4.8 19.2 8.022 19.2 12C19.2 15.978 15.978 19.2 12 19.2ZM12.45 7.5H11.1V12.9L15.825 15.735L16.5 14.628L12.45 12.225V7.5Z" fill="#191919"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_1259_1547">
+                <rect width="24" height="24" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+</div>
+
+
+<%
+=begin%>
+  SUPPORT
+<%
+=end%>
+
+    <div class="flex justify-between">
+
+      <div class="mb-4 shadow-2xl bg-white w-32 h-32 rounded-lg p-4 hover:bg-slate-200">
+        <p class="text-base mb-2">Support</p>
+        <p class="truncate text-2xl font-bold  mb-2"><%= @activity.device.name %></p>
+        <div class="flex justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <mask id="mask0_1259_1989" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+              <rect width="24" height="24" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_1259_1989)">
+              <path d="M3 19.4V16.7H4.8V6.8C4.8 6.305 4.97625 5.88125 5.32875 5.52875C5.68125 5.17625 6.105 5 6.6 5H20.1V6.8H6.6V16.7H12V19.4H3ZM14.7 19.4C14.445 19.4 14.2312 19.3138 14.0588 19.1413C13.8863 18.9688 13.8 18.755 13.8 18.5V9.5C13.8 9.245 13.8863 9.03125 14.0588 8.85875C14.2312 8.68625 14.445 8.6 14.7 8.6H20.1C20.355 8.6 20.5687 8.68625 20.7412 8.85875C20.9137 9.03125 21 9.245 21 9.5V18.5C21 18.755 20.9137 18.9688 20.7412 19.1413C20.5687 19.3138 20.355 19.4 20.1 19.4H14.7ZM15.6 16.7H19.2V10.4H15.6V16.7Z" fill="#191919"/>
+            </g>
+          </svg>
+
+
+        </div>
+
+
+      </div>
+
+<%
+=begin%>
+  JEU
+<%
+=end%>
+
+      <div class="mb-4 shadow-2xl bg-white w-32 h-32 rounded-lg p-4 hover:bg-slate-200">
+        <p class="text-base mb-2">Jeu</p>
+        <p class="truncate text-2xl font-bold  mb-2"><%= @activity.game.name %></p>
+        <div class="flex justify-between">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <mask id="mask0_1259_1306" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+              <rect width="24" height="24" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_1259_1306)">
+              <path d="M4.8 17.8C4.305 17.8 3.88125 17.6238 3.52875 17.2713C3.17625 16.9188 3 16.495 3 16V8.8C3 8.305 3.17625 7.88125 3.52875 7.52875C3.88125 7.17625 4.305 7 4.8 7H19.2C19.695 7 20.1187 7.17625 20.4713 7.52875C20.8237 7.88125 21 8.305 21 8.8V16C21 16.495 20.8237 16.9188 20.4713 17.2713C20.1187 17.6238 19.695 17.8 19.2 17.8H4.8ZM4.8 16H19.2V8.8H4.8V16ZM7.5 15.1H9.3V13.3H11.1V11.5H9.3V9.7H7.5V11.5H5.7V13.3H7.5V15.1ZM14.25 15.1C14.625 15.1 14.9437 14.9688 15.2062 14.7063C15.4688 14.4438 15.6 14.125 15.6 13.75C15.6 13.375 15.4688 13.0563 15.2062 12.7938C14.9437 12.5312 14.625 12.4 14.25 12.4C13.875 12.4 13.5562 12.5312 13.2937 12.7938C13.0312 13.0563 12.9 13.375 12.9 13.75C12.9 14.125 13.0312 14.4438 13.2937 14.7063C13.5562 14.9688 13.875 15.1 14.25 15.1ZM16.95 12.4C17.325 12.4 17.6437 12.2688 17.9062 12.0063C18.1687 11.7438 18.3 11.425 18.3 11.05C18.3 10.675 18.1687 10.3563 17.9062 10.0938C17.6437 9.83125 17.325 9.7 16.95 9.7C16.575 9.7 16.2562 9.83125 15.9937 10.0938C15.7312 10.3563 15.6 10.675 15.6 11.05C15.6 11.425 15.7312 11.7438 15.9937 12.0063C16.2562 12.2688 16.575 12.4 16.95 12.4Z" fill="#191919"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+
+
+<%
+=begin%>
+  SENIORS
+<%
+=end%>
+
+
+
+<div class="border-cyan-900 border-solid border-2  mb-4 shadow-2xl bg-white w-68 h-36 rounded-lg p-4 hover:bg-slate-200" >
+    <p class="text-base mb-2">Séniors</p>
+      <p class="text-2xl font-bold  mb-2">A INTEGRER</p>
+    <div class="flex justify-between">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9.3 12.3C11.037 12.3 12.45 10.887 12.45 9.15C12.45 7.413 11.037 6 9.3 6C7.563 6 6.15 7.413 6.15 9.15C6.15 10.887 7.563 12.3 9.3 12.3ZM9.3 7.8C10.047 7.8 10.65 8.403 10.65 9.15C10.65 9.897 10.047 10.5 9.3 10.5C8.553 10.5 7.95 9.897 7.95 9.15C7.95 8.403 8.553 7.8 9.3 7.8ZM9.345 16.8H5.493C6.384 16.35 7.923 15.9 9.3 15.9C9.399 15.9 9.507 15.909 9.606 15.909C9.912 15.252 10.443 14.712 11.082 14.28C10.425 14.163 9.804 14.1 9.3 14.1C7.194 14.1 3 15.153 3 17.25V18.6H9.3V17.25C9.3 17.097 9.318 16.944 9.345 16.8ZM16.05 14.55C14.394 14.55 11.1 15.459 11.1 17.25V18.6H21V17.25C21 15.459 17.706 14.55 16.05 14.55ZM17.139 12.912C17.823 12.525 18.3 11.796 18.3 10.95C18.3 9.708 17.292 8.7 16.05 8.7C14.808 8.7 13.8 9.708 13.8 10.95C13.8 11.796 14.277 12.525 14.961 12.912C15.285 13.092 15.654 13.2 16.05 13.2C16.446 13.2 16.815 13.092 17.139 12.912Z" fill="#191919"/>
+      </svg>
+      <div class="flex">
+      <p class="mr-2">Voir les participants</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3L10.4138 4.58625L16.6912 10.875H3V13.125H16.6912L10.4138 19.4137L12 21L21 12L12 3Z" fill="#191919"/>
+      </svg>
+      </div>
+    </div>
+  </div>
 
 <div>
-  <%= link_to "Edit this activity", edit_activity_path(@activity) %> |
-  <%= link_to "Back to activities", activities_path %>
 
-  <%= button_to "Destroy this activity", @activity, method: :delete %>
+
 </div>

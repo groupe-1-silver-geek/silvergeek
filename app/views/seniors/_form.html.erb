@@ -11,15 +11,10 @@
     </div>
   <% end %>
 
-  <div class="flex flex-col w-64  ml-auto mr-auto gap-5 mt-16 relative ">
+  <div class="flex flex-col w-64  ml-auto mr-auto gap-5 relative ">
 
 
-  <%= link_to "/seniors" do %>
-      <%= content_tag(:svg, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24") do %>
-        <%= content_tag(:path, "", d: "M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z", fill: "#191919") %>
-      <% end %>
-  <% end %>
-  <h1 class="text-3xl font-roboto">Ajouter un Senior</h1>
+
 
   <div>
     <%= form.label :pseudo, style: "display: block" %>
@@ -32,18 +27,18 @@
   </div>
 
   <div>
-    <%= form.label :gender, style: "display: block" %>
+    <%= form.label :genre, style: "display: block" %>
     <%= form.text_field :gender, placeholder: "Genre", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
   </div>
 
   <div>
-    <%= form.label :code, style: "display: block" %>
-    <%= form.number_field :code, placeholder: "Code postal", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
+    <%= form.label :code_postal, style: "display: block" %>
+    <%= form.number_field :code, placeholder: "Code postal", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent", min: 0, style: "appearance: textfield; -moz-appearance: textfield; -webkit-appearance: textfield;" %>
   </div>
 
   <div>
     <%= form.label :structure_id, style: "display: block" %>
-    <%= form.text_field :structure_id, placeholder: "Structure", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"   %>
+    <%= form.text_field :structure_id, placeholder: "Structure", class: "pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
   </div>
 
   <div class="color-blue flex p-4 rounded-lg justify-between items-center text-base text-white">
