@@ -14,3 +14,20 @@
  *= require_tree .
  *= require_self
  */
+
+ select.bg-transparent {
+  background-color: transparent !important;
+  color: black;
+  opacity: 1;
+
+}
+
+input.bg-transparent {
+  background-color: transparent !important;
+  color: black;
+  opacity: 1;
+}
+
+input.text-black{
+  color: #f9000000;
+}

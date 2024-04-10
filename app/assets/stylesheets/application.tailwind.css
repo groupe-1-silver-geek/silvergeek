@@ -18,6 +18,10 @@
   .color-blue:hover{
     background-color: #001C2F;
   }
+
+  .text-black{
+    color: black;
+  }
 }
 
 
