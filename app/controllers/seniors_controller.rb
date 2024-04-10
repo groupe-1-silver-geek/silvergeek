@@ -14,6 +14,7 @@ class SeniorsController < ApplicationController
 
   # GET /seniors/new
   def new
+  
     @senior = Senior.new
   end
 
