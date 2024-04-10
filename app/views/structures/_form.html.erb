@@ -6,7 +6,7 @@
   <%= f.input :city, label: "Ville", placeholder: "Ville" ,input_html: { class: 'shadow-none 	rounded-none pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent border-l-transparent' } %>
   <%= f.association :partner, label: "Partenaire", input_html: { class: 'shadow-none  	rounded-none pl-0 h-6 w-64 focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent border-l-transparent bg-transparent' } %>
   <div class="color-blue flex p-4 rounded-lg justify-between items-center text-base text-white h-14 w-64">
-    <%= f.button :submit%>
+    <%= f.button :submit, 'Ajouter la structure', button_html: { class:'text-white'} %>
   </div>
 
 <% end %>
