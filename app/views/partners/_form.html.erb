@@ -1,29 +1,9 @@
-<%= form_with(model: partner) do |form| %>
-  <% if partner.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(partner.errors.count, "error") %> prohibited this partner from being saved:</h2>
-
-      <ul>
-        <% partner.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="flex flex-col w-64  ml-auto mr-auto gap-5  relative ">
-
-  <div>
-    <%= form.label :Nom, style: "display: block" %>
-    <%= form.text_field :name, placeholder: "Nom", class: "pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"  %>
-  </div>
-
-  <div class="color-blue flex p-4 rounded-lg justify-between items-center text-base text-white">
-    <%= form.submit "Ajouter le partenaire" %>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M11.1 16.5H12.9V12.9H16.5V11.1H12.9V7.5H11.1V11.1H7.5V12.9H11.1V16.5ZM12 21C10.755 21 9.585 20.7636 8.49 20.2908C7.395 19.8186 6.4425 19.1775 5.6325 18.3675C4.8225 17.5575 4.1814 16.605 3.7092 15.51C3.2364 14.415 3 13.245 3 12C3 10.755 3.2364 9.585 3.7092 8.49C4.1814 7.395 4.8225 6.4425 5.6325 5.6325C6.4425 4.8225 7.395 4.1811 8.49 3.7083C9.585 3.2361 10.755 3 12 3C13.245 3 14.415 3.2361 15.51 3.7083C16.605 4.1811 17.5575 4.8225 18.3675 5.6325C19.1775 6.4425 19.8186 7.395 20.2908 8.49C20.7636 9.585 21 10.755 21 12C21 13.245 20.7636 14.415 20.2908 15.51C19.8186 16.605 19.1775 17.5575 18.3675 18.3675C17.5575 19.1775 16.605 19.8186 15.51 20.2908C14.415 20.7636 13.245 21 12 21ZM12 19.2C14.01 19.2 15.7125 18.5025 17.1075 17.1075C18.5025 15.7125 19.2 14.01 19.2 12C19.2 9.99 18.5025 8.2875 17.1075 6.8925C15.7125 5.4975 14.01 4.8 12 4.8C9.99 4.8 8.2875 5.4975 6.8925 6.8925C5.4975 8.2875 4.8 9.99 4.8 12C4.8 14.01 5.4975 15.7125 6.8925 17.1075C8.2875 18.5025 9.99 19.2 12 19.2Z" fill="white"/>
-    </svg>
-  </div>
-
+<%= simple_form_for partner do |f| %>
+  <%= f.input :name, label: "Nom", placeholder: "Nom"%>
+  <div class="flex justify-between">
+    <%= f.button :submit, 'Ajouter le senior', button_html: { class:'bg-blue-600 flex p-4 rounded-lg justify-center items-center text-base text-white h-12 w-48' } %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M11.1 16.5H12.9V12.9H16.5V11.1H12.9V7.5H11.1V11.1H7.5V12.9H11.1V16.5ZM12 21C10.755 21 9.585 20.7636 8.49 20.2908C7.395 19.8186 6.4425 19.1775 5.6325 18.3675C4.8225 17.5575 4.1814 16.605 3.7092 15.51C3.2364 14.415 3 13.245 3 12C3 10.755 3.2364 9.585 3.7092 8.49C4.1814 7.395 4.8225 6.4425 5.6325 5.6325C6.4425 4.8225 7.395 4.1811 8.49 3.7083C9.585 3.2361 10.755 3 12 3C13.245 3 14.415 3.2361 15.51 3.7083C16.605 4.1811 17.5575 4.8225 18.3675 5.6325C19.1775 6.4425 19.8186 7.395 20.2908 8.49C20.7636 9.585 21 10.755 21 12C21 13.245 20.7636 14.415 20.2908 15.51C19.8186 16.605 19.1775 17.5575 18.3675 18.3675C17.5575 19.1775 16.605 19.8186 15.51 20.2908C14.415 20.7636 13.245 21 12 21ZM12 19.2C14.01 19.2 15.7125 18.5025 17.1075 17.1075C18.5025 15.7125 19.2 14.01 19.2 12C19.2 9.99 18.5025 8.2875 17.1075 6.8925C15.7125 5.4975 14.01 4.8 12 4.8C9.99 4.8 8.2875 5.4975 6.8925 6.8925C5.4975 8.2875 4.8 9.99 4.8 12C4.8 14.01 5.4975 15.7125 6.8925 17.1075C8.2875 18.5025 9.99 19.2 12 19.2Z" fill="white"/>
+      </svg>
   </div>
 <% end %>
