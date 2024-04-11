@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @partners = Partner.all
     @activities = Activity.all
     @seniors = Senior.all
+    @participations = Participation.all
     @term = params[:term]
     @structures = @term.blank? ? Structure.all : Structure.where("name ILIKE (?)", "%#{@term}%")
     @partners = @term.blank? ? Partner.all : Partner.where("name ILIKE (?)", "%#{@term}%")

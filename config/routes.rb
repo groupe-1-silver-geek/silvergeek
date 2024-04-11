@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   end
   get '/export_data', to: 'home#export_data', format: :csv
 
+  get 'add_page' => 'pages#add_page', as: :add_page
+
   devise_for :users
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
