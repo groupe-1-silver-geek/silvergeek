@@ -6,8 +6,7 @@
 
 <% if current_user.pending? %>
   <p>Votre compte est en cours de validation. Un administrateur vous assignera un partenaire.</p>
-
-  <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+  <%= link_to "Retourner à la page de connexion", destroy_user_session_path, method: :delete , class:"mb-2 actions color-blue flex p-4 rounded-lg items-center text-base text-white justify-center"%>
 <% else %>
   <p>Voici votre dashboard. Consultez vos partenaires, les structures, les ateliers et les séniors. </p>
   <section class="flex flex-col-reverse mt-6 gap-4">
