@@ -1,11 +1,11 @@
 class StructuresController < ApplicationController
-  before_action :set_structure, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /structures or /structures.json
   def index
     @term = params[:term]
-    @structures = @term.blank? ? Structure.all
-                               : Structure.where("name ILIKE (?)", "%#{@term}%")
+    @structures = @term.blank? ? @structures.all
+                               : @structures.where("name ILIKE (?)", "%#{@term}%")
 
   end
 
@@ -16,7 +16,7 @@ class StructuresController < ApplicationController
 
   # GET /structures/new
   def new
-    @structure = Structure.new
+    @structure.partner = current_user.partner unless current_user.admin?
   end
 
   # GET /structures/1/edit
@@ -25,8 +25,7 @@ class StructuresController < ApplicationController
 
   # POST /structures or /structures.json
   def create
-    @structure = Structure.new(structure_params)
-
+    @structure.partner = current_user.partner unless current_user.admin?
     respond_to do |format|
       if @structure.save
         format.html { redirect_to structure_url(@structure), notice: "Structure was successfully created." }
@@ -57,13 +56,6 @@ class StructuresController < ApplicationController
 
   # DELETE /structures/1 or /structures/1.json
   def destroy
-
-    @structure = Structure.find(params[:id])
-
-    Senior.where(structure_id: @structure.id).destroy_all
-
-    Activity.where(structure_id: @structure.id).destroy_all
-
     @structure.destroy!
 
     respond_to do |format|
@@ -74,11 +66,6 @@ class StructuresController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_structure
-      @structure = Structure.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def structure_params
       params.require(:structure).permit(:adress, :zipCode, :city, :partner_id, :name)

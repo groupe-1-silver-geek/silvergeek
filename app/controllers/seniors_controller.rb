@@ -12,6 +12,11 @@ class SeniorsController < ApplicationController
   def show
   end
 
+  def show_participations
+    @senior = Senior.find(params[:id])
+    @participations = @senior.participations
+    @activities = Activity.find(@participations.map(&:activity_id))
+  end
   # GET /seniors/new
   def new
   

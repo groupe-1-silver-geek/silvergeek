@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   def show_participations
     @activity = Activity.find(params[:id])
     @participations = @activity.participations
+    @seniors = Senior.find(@participations.map(&:senior_id))
   end
 
 
@@ -25,7 +26,6 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
     @devices = Device.all
-    @structures = Structure.accessible_by(current_ability)
     @games = Game.all
   end
 

@@ -4,7 +4,7 @@
   <%= f.input :adress, label: "Adresse", placeholder: "Adresse" %>
   <%= f.input :zipCode, label: "Code postal", placeholder: "Code postal" %>
   <%= f.input :city, label: "Ville", placeholder: "Ville"%>
-  <%= f.association :partner, label: "Partenaire"%>
+  <%= f.association :partner, label: "Partenaire" if current_user.admin? %>
   <div class="flex justify-between">
     <%= f.button :submit, 'Ajouter la structure', button_html: { class:'bg-blue-600 flex p-4 rounded-lg justify-center items-center text-base text-white h-12 w-48' } %>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

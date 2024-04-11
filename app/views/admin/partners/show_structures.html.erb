@@ -1,0 +1,8 @@
+<h1>Participations pour <%= @partner.name %></h1>
+
+<% @structures.each do |structure| %>
+    <%= link_to structure_path(structure) do %>
+         <p>structure: <%= structure.name %></p>
+    <% end %>
+    
+<% end %>
