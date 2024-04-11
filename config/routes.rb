@@ -1,21 +1,23 @@
 Rails.application.routes.draw do
-  resources :participations
-  resources :seniors
-  resources :structures
-  resources :activities
-  resources :devices
-  resources :games
+  devise_for :users
+
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :partners do
       get 'show_structures', on: :member
     end
-end
+  end
+  resources :devices
+  resources :games
+
+  resources :structures
+  resources :seniors
+  resources :activities
+  resources :participations
+
   get '/export_data', to: 'home#export_data', format: :csv
 
   get 'add_page' => 'pages#add_page', as: :add_page
-
-  devise_for :users
 
 
   resources :activities do

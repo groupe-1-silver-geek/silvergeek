@@ -1,13 +1,11 @@
 class Admin::PartnersController < Admin::ApplicationController
-  before_action :set_partner, only: %i[ show edit update destroy ]
-
+  load_and_authorize_resource
 
   # GET /partners or /partners.json
   def index
-    @partners = Partner.all
     @term = params[:term]
-    @partners = @term.blank? ? Partner.all
-                             : Partner.where("name ILIKE (?)", "%#{@term}%")
+    @partners = @term.blank? ? @partners
+                             : @partners.where("name ILIKE (?)", "%#{@term}%")
 
   end
 
@@ -25,7 +23,6 @@ class Admin::PartnersController < Admin::ApplicationController
   # GET /partners/new
   def new
     @regions = Region.all
-    @partner = Partner.new
   end
 
   # GET /partners/1/edit
@@ -35,8 +32,6 @@ class Admin::PartnersController < Admin::ApplicationController
 
   # POST /partners or /partners.json
   def create
-    @partner = Partner.new(partner_params)
-
     respond_to do |format|
       if @partner.save
         format.html { redirect_to admin_partner_url(@partner), notice: "Partner was successfully created." }
@@ -72,10 +67,6 @@ class Admin::PartnersController < Admin::ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_partner
-      @partner = Partner.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def partner_params

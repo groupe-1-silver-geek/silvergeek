@@ -6,7 +6,7 @@
   <%= f.input :duration, label: "Durée", placeholder: "Durée" %>
   <%= f.association :game, label: "Jeu"%>
   <%= f.association :device, label: "Appareil"%>
-  <%= f.association :structure, label: "Structure"%>
+  <%= f.association :structure, label: "Structure", collection: Structure.accessible_by(current_ability) %>
   <%= f.input :otherDevice, label: "Autre appareil", placeholder: "Autre appareil" %>
 
   <%= f.input :senior_ids, label: "Seniors", collection: Senior.all.map { |senior| [senior.pseudo, senior.id] }, as: :check_boxes, input_html: { multiple: true } %>

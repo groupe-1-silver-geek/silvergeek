@@ -19,7 +19,10 @@ class Ability
       can :manage, Participation, activity_id: Activity.where(structure_id: managed_structure_ids(user)).pluck(:id)
       if user.partner_admin?
         can :manage, Partner, id: user.partner_id
+        cannot :create, Partner
         can :manage, Structure, partner_id: user.partner_id
+      else
+        can :read, Structure, partner_id: user.partner_id
       end
     end
   end

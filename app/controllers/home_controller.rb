@@ -2,14 +2,14 @@ require 'csv'
 
 class HomeController < ApplicationController
   def index
-    @structures = Structure.all
+    @structures = Structure.accessible_by(current_ability)
     @partners = Partner.all
-    @activities = Activity.all
-    @seniors = Senior.all
-    @participations = Participation.all
+    @activities = Activity.accessible_by(current_ability)
+    @seniors = Senior.accessible_by(current_ability)
+    @participations = Participation.accessible_by(current_ability)
     @term = params[:term]
-    @structures = @term.blank? ? Structure.all : Structure.where("name ILIKE (?)", "%#{@term}%")
-    @partners = @term.blank? ? Partner.all : Partner.where("name ILIKE (?)", "%#{@term}%")
+    @structures = @term.blank? ? @structures : @structures.where("name ILIKE (?)", "%#{@term}%")
+    @partners = @term.blank? ? @partners : @partners.where("name ILIKE (?)", "%#{@term}%")
   end
 
   def export_data
