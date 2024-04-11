@@ -9,7 +9,7 @@
 
   <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
 <% else %>
-  <p>Voici votre dashboard. Consultez vos partenaires, les structures, les ateliers et les players.</p>
+  <p>Voici votre dashboard. Consultez vos partenaires, les structures, les ateliers et les séniors. </p>
 
         <div class="flex justify-between mb-3">
           <%= link_to "/activities/" do %>
@@ -44,12 +44,12 @@
 
         <% if can?(:create, Structure) %>
           <%= link_to structures_path do %>
-            <div class="border-cyan-900 border-solid border-2 bg-white square rounded-lg p-4 hover:bg-slate-200">
-              <p class="text-sm mb-2">Voir les structures</p>
+            <div class="border-cyan-900 border-solid border-2 mb-4 l bg-white w-68 h-32 rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
+              <p class="text-sm mb-2">Structures</p>
               <p class="text-2xl font-bold  mb-2"><%= @structures.count %></p>
               <div class="flex justify-between">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 5.1375C13.305 5.1375 14.3625 6.195 14.3625 7.5C14.3625 8.805 13.305 9.8625 12 9.8625C10.695 9.8625 9.6375 8.805 9.6375 7.5C9.6375 6.195 10.695 5.1375 12 5.1375ZM12 15.2625C15.3413 15.2625 18.8625 16.905 18.8625 17.625V18.8625H5.1375V17.625C5.1375 16.905 8.65875 15.2625 12 15.2625ZM12 3C9.51375 3 7.5 5.01375 7.5 7.5C7.5 9.98625 9.51375 12 12 12C14.4862 12 16.5 9.98625 16.5 7.5C16.5 5.01375 14.4862 3 12 3ZM12 13.125C8.99625 13.125 3 14.6325 3 17.625V21H21V17.625C21 14.6325 15.0037 13.125 12 13.125Z" fill="#191919"/>
+                  <path d="M17 11V3H7V7H3V21H11V17H13V21H21V11H17ZM7 19H5V17H7V19ZM7 15H5V13H7V15ZM7 11H5V9H7V11ZM11 15H9V13H11V15ZM11 11H9V9H11V11ZM11 7H9V5H11V7ZM15 15H13V13H15V15ZM15 11H13V9H15V11ZM15 7H13V5H15V7ZM19 19H17V17H19V19ZM19 15H17V13H19V15Z" fill="#191919"/>
                 </svg>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M12 3L10.4138 4.58625L16.6912 10.875H3V13.125H16.6912L10.4138 19.4137L12 21L21 12L12 3Z" fill="#191919"/>
@@ -58,6 +58,7 @@
             </div>
           <% end %>
         <% end %>
+
 
         <div class="flex justify-between">
       <%= link_to "/seniors/" do %>
