@@ -14,6 +14,16 @@ class StructuresController < ApplicationController
 
   end
 
+  def show_ateliers
+    @structure = Structure.find(params[:id])
+    @activities = @structure.activities
+  end
+
+  def show_seniors
+    @structure = Structure.find(params[:id])
+    @seniors = @structure.seniors
+  end
+
   # GET /structures/new
   def new
     @structure.partner = current_user.partner unless current_user.admin?

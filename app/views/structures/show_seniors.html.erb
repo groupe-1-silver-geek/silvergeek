@@ -1,3 +1,4 @@
+
 <div class="flex">
   <%= link_to :back do %>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="hover:cursor-pointer">
@@ -6,11 +7,11 @@
   <% end%>
   <p class="ml-2">Retour vers la structure</p>
 </div>
-<h1 class="text-3xl font-roboto font-bold">Ateliers de <%= @structure.name %></h1>
+<h1 class="text-3xl font-roboto font-bold">Séniors de <%= @structure.name %></h1>
 
 <form class="flex items-center" target="" method="">
 
-  <input name="term" type="text" value="<%= @term %>" class="border-none shadow-2xl h-14 w-72 bg-white rounded-lg p-2 placeholder:text-blue-900 placeholder:text-base " type="search" placeholder="Rechercher un atelier ">
+  <input name="term" type="text" value="<%= @term %>" class="border-none shadow-2xl h-14 w-72 bg-white rounded-lg p-2 placeholder:text-blue-900 placeholder:text-base " type="search" placeholder="Rechercher un sénior ">
 
   <button class="absolute ml-64" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.146 15.371 4.888 14.113C3.62933 12.8543 3 11.3167 3 9.5C3 7.68333 3.62933 6.14567 4.888 4.887C6.146 3.629 7.68333 3 9.5 3C11.3167 3 12.8543 3.629 14.113 4.887C15.371 6.14567 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8127 13.5627 12.688 12.688C13.5627 11.8127 14 10.75 14 9.5C14 8.25 13.5627 7.18733 12.688 6.312C11.8127 5.43733 10.75 5 9.5 5C8.25 5 7.18733 5.43733 6.312 6.312C5.43733 7.18733 5 8.25 5 9.5C5 10.75 5.43733 11.8127 6.312 12.688C7.18733 13.5627 8.25 14 9.5 14Z" fill="#01385E"/>
@@ -18,11 +19,11 @@
 
 </form>
 
-<% if @activities.any? %>
-  <% @activities.each do |activity| %>
-    <%= link_to activity_path(activity) do %>
+<% if @seniors.any? %>
+  <% @seniors.each do |senior| %>
+    <%= link_to senior_path(senior) do %>
       <div class="border-cyan-900 border-solid border-2 text-base bg-white rounded-lg p-2 h-14 justify-between flex items-center hover:bg-slate-200">
-         <%= activity.name %>
+         <%= senior.pseudo %>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
           <path d="M12 3.5L10.4138 5.08625L16.6912 11.375H3V13.625H16.6912L10.4138 19.9137L12 21.5L21 12.5L12 3.5Z" fill="#01385E"/>
         </svg>

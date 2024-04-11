@@ -43,7 +43,7 @@
 
 
   <div>
-  <%= link_to show_ateliers_path(@structure) do %>
+  <%= link_to show_ateliers_structure_path(@structure) do %>
     <div class="border-cyan-900 border-solid border-2 mb-4  bg-white w-68 h-32 rounded-lg p-4 hover:bg-slate-200" >
         <p class="text-base mb-2">Ateliers</p>
         <p class="text-2xl font-bold  mb-2"><%= @structure.activities.count %> </p>
@@ -62,7 +62,7 @@
     </div>
   <% end %>
 
-
+            <%= link_to show_seniors_structure_path(@structure) do %>
           <div class="border-cyan-900 border-solid border-2 mb-4 bg-white w-68 h-32 rounded-lg p-4 hover:bg-slate-200" >
         <p class="text-base mb-2">Seniors</p>
         <p class="text-2xl font-bold  mb-2"><%= @structure.seniors.count %></p>
@@ -78,3 +78,4 @@
           </div>
         </div>
     </div>
+    <% end %>
