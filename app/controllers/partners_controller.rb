@@ -16,6 +16,12 @@ class PartnersController < ApplicationController
 
   end
 
+  def show_structures
+    @partner = Partner.find(params[:id])
+    @structures = @partner.structures
+  end
+
+
   # GET /partners/new
   def new
     @regions = Region.all
