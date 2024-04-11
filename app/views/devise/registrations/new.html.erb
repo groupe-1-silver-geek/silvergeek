@@ -1,5 +1,3 @@
-<div class="flex flex-col w-64  ml-auto mr-auto gap-5 mt-16 relative ">
-
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
   <path d="M64 57.2228C64 60.9639 60.9661 63.9978 57.2251 63.9978H6.77958C3.03852 63.9978 0.00244141 60.9617 0.00244141 57.2228V6.77498C0.00244141 3.0339 3.03633 0 6.77958 0H57.2251C60.9661 0 64 3.0339 64 6.77498V57.2228Z" fill="#F8AE53"/>
   <path d="M63.9976 25.1855V57.3623C63.9976 61.027 60.9637 63.9998 57.2204 63.9998H6.77714C3.03608 63.9998 0 61.027 0 57.3623V25.1855C0 25.1855 35.3852 50.0242 63.9976 25.1855Z" fill="url(#paint0_linear_233_1936)"/>
@@ -30,42 +28,36 @@
   </defs>
 </svg>
 
-<h1 class="text-3xl font-bold">Rejoignez Silvergeek</h1>
+<h1 class="text-3xl font-bold">Inscrivez-vous à Silver Geek</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, class: "text-xs " %><br />
+    <%= f.label :email, "Adresse mail de contact "%><br />
     <%= f.email_field :email, autofocus: true, placeholder: "Exemple@silvergeek.com", autocomplete: "email", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"   %>
   </div>
 
   <div class="field">
-    <%= f.label :password , class: "text-xs "%>
+    <%= f.label :password , "Mot de passe"%>
     <% if @minimum_password_length %>
-
     <% end %><br />
     <%= f.password_field :password, placeholder: "Mot de passe", autocomplete: "new-password", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"   %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, class: "text-xs " %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirmer le mot de passe", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"   %>
+    <%= f.label :password_confirmation, "Confirmer le mot de passe" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmer le mot de passe", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent"   %>
   </div>
 
-  <div class="actions bg-blue-800 hover:bg-blue-900 flex p-4 rounded-lg justify-between items-center text-base text-white">
-    <%= f.submit "Se connecter" %>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M11.1 16.5H12.9V12.9H16.5V11.1H12.9V7.5H11.1V11.1H7.5V12.9H11.1V16.5ZM12 21C10.755 21 9.585 20.7636 8.49 20.2908C7.395 19.8186 6.4425 19.1775 5.6325 18.3675C4.8225 17.5575 4.1814 16.605 3.7092 15.51C3.2364 14.415 3 13.245 3 12C3 10.755 3.2364 9.585 3.7092 8.49C4.1814 7.395 4.8225 6.4425 5.6325 5.6325C6.4425 4.8225 7.395 4.1811 8.49 3.7083C9.585 3.2361 10.755 3 12 3C13.245 3 14.415 3.2361 15.51 3.7083C16.605 4.1811 17.5575 4.8225 18.3675 5.6325C19.1775 6.4425 19.8186 7.395 20.2908 8.49C20.7636 9.585 21 10.755 21 12C21 13.245 20.7636 14.415 20.2908 15.51C19.8186 16.605 19.1775 17.5575 18.3675 18.3675C17.5575 19.1775 16.605 19.8186 15.51 20.2908C14.415 20.7636 13.245 21 12 21ZM12 19.2C14.01 19.2 15.7125 18.5025 17.1075 17.1075C18.5025 15.7125 19.2 14.01 19.2 12C19.2 9.99 18.5025 8.2875 17.1075 6.8925C15.7125 5.4975 14.01 4.8 12 4.8C9.99 4.8 8.2875 5.4975 6.8925 6.8925C5.4975 8.2875 4.8 9.99 4.8 12C4.8 14.01 5.4975 15.7125 6.8925 17.1075C8.2875 18.5025 9.99 19.2 12 19.2Z" fill="white"/>
-    </svg>
+  <div class="actions color-blue flex p-4 rounded-lg items-center text-base text-white justify-center">
+    <%= f.submit "S'inscrire" %>
   </div>
-
-
 
 <% end %>
 
+<div class="text-center text-sm underline">
 
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 
 </div>

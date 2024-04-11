@@ -15,6 +15,14 @@
     background-color: #01385E;
   }
 
+  .font-blue{
+    color: #01385E;
+  }
+  
+  .font-blue:hover{
+    color: #001C2F;
+  }
+
   .color-blue:hover{
     background-color: #001C2F;
   }

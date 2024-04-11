@@ -33,24 +33,22 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email, class: "text-xs " %><br />
-    <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, placeholder: "Email", autocomplete: "email", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent border-l-transparent" %>
   </div>
 
   <div class="field">
-    <%= f.label :password, class: "text-xs " %><br />
-    <%= f.password_field :password, placeholder: "Mot de passe", autocomplete: "current-password", class: "mb-6 focus:outline-none pl-0 h-6  w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent  border-l-transparent" %>
+    <%= f.label :password, "Mot de passe" %><br />
+    <%= f.password_field :password, placeholder: "Mot de passe", autocomplete: "current-password", class: "mb-6 focus:outline-none pl-0 h-6 w-64 bg-transparent focus:outline-none border-b-orange-500 border-t-transparent border-r-transparent border-l-transparent" %>
   </div>
 
-
-
-  <div class="mb-6 actions bg-blue-800 hover:bg-blue-900 flex p-4 rounded-lg items-center text-base text-white justify-center">
+  <div class="mb-2 actions color-blue flex p-4 rounded-lg items-center text-base text-white justify-center">
     <%= f.submit "Se connecter" %>
   </div>
 <% end %>
 
 
-<div class="text-center text-xs underline">
+<div class="text-center text-sm underline">
 
   <%= render "devise/shared/links" %>
 
