@@ -10,8 +10,8 @@
   <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %>
 <% else %>
   <p>Voici votre dashboard. Consultez vos partenaires, les structures, les ateliers et les séniors. </p>
-
-        <div class="flex justify-between mb-3">
+  <section class="flex flex-col-reverse mt-6 gap-4">
+        <div class="flex justify-between  w-full">
           <%= link_to "/activities/" do %>
             <div class="border-cyan-900 border-solid border-2  bg-white square rounded-lg p-4 hover:bg-slate-200">
               <p class="text-sm mb-2">Ateliers en 2024</p>
@@ -44,7 +44,7 @@
 
         <% if can?(:create, Structure) %>
           <%= link_to structures_path do %>
-            <div class="border-cyan-900 border-solid border-2 mb-4 l bg-white w-68 h-32 rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
+            <div class="border-cyan-900 border-solid border-2 l bg-white w-68 h-32 rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
               <p class="text-sm mb-2">Structures</p>
               <p class="text-2xl font-bold  mb-2"><%= @structures.count %></p>
               <div class="flex justify-between">
@@ -62,7 +62,7 @@
 
         <div class="flex justify-between">
       <%= link_to "/seniors/" do %>
-      <div class="border-cyan-900 border-solid border-2 mb-4 bg-white square rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
+      <div class="border-cyan-900 border-solid border-2  bg-white square rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
         <p class="text-sm mb-2">Seniors en 2024</p>
         <p class="text-2xl font-bold  mb-2"><%= @seniors.count %></p>
         <div class="flex justify-between">
@@ -99,18 +99,20 @@
       </div>
 
     </div>
+  </section>
 
 
-
-  <%= link_to export_data_path(format: :csv), class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white" do %>
-  <p>Exporter les données</p>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <mask id="mask0_1390_2599" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-        <rect width="24" height="24" fill="#D9D9D9"/>
-      </mask>
-      <g mask="url(#mask0_1390_2599)">
-        <path d="M4.8 19.4C4.305 19.4 3.88125 19.2238 3.52875 18.8713C3.17625 18.5188 3 18.095 3 17.6V6.8C3 6.305 3.17625 5.88125 3.52875 5.52875C3.88125 5.17625 4.305 5 4.8 5H9.3V6.8H4.8V17.6H19.2V6.8H14.7V5H19.2C19.695 5 20.1187 5.17625 20.4713 5.52875C20.8237 5.88125 21 6.305 21 6.8V17.6C21 18.095 20.8237 18.5188 20.4713 18.8713C20.1187 19.2238 19.695 19.4 19.2 19.4H4.8ZM12 15.26L7.5 10.76L8.76 9.5L11.1 11.84V5H12.9V11.84L15.24 9.5L16.5 10.76L12 15.26Z" fill="white"/>
-      </g>
-    </svg>
+<% unless current_user.animator? || current_user.partner_admin? %>
+    <%= link_to export_data_path(format: :csv), class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white" do %>
+      <p>Exporter les données</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <mask id="mask0_1390_2599" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+          <rect width="24" height="24" fill="#D9D9D9"/>
+        </mask>
+        <g mask="url(#mask0_1390_2599)">
+          <path d="M4.8 19.4C4.305 19.4 3.88125 19.2238 3.52875 18.8713C3.17625 18.5188 3 18.095 3 17.6V6.8C3 6.305 3.17625 5.88125 3.52875 5.52875C3.88125 5.17625 4.305 5 4.8 5H9.3V6.8H4.8V17.6H19.2V6.8H14.7V5H19.2C19.695 5 20.1187 5.17625  5.52875C20.8237 5.88125 21 6.305 21 6.8V17.6C21 18.095 20.8237 18.5188 20.4713 18.8713C20.1187 19.2238 19.695 19.4 19.2 19.4H4.8ZM12 15.26L7.5 10.76L8.76 9.5L11.1 11.84V5H12.9V11.84L15.24 9.5L16.5 10.76L12 15.26Z" fill="white"/>
+        </g>
+      </svg>
+    <% end %>
   <% end %>
 <% end %>
