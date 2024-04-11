@@ -9,6 +9,8 @@
   <%= f.association :structure, label: "Structure"%>
   <%= f.input :otherDevice, label: "Autre appareil", placeholder: "Autre appareil" %>
 
+  <%= f.input :senior_ids, label: "Seniors", collection: Senior.all.map { |senior| [senior.pseudo, senior.id] }, as: :check_boxes, input_html: { multiple: true } %>
+  
   <div class="flex justify-between">
     <%= f.button :submit, 'Ajouter la structure', button_html: { class:'bg-blue-600 flex p-4 rounded-lg justify-center items-center text-base text-white h-12 w-50' } %>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
