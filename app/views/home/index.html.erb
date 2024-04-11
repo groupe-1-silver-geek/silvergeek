@@ -8,7 +8,7 @@
 
         <div class="flex justify-between">
           <%= link_to "/activities/" do %>
-      <div class="border-cyan-900 border-solid border-2  shadow-2xl bg-white square rounded-lg p-4 hover:bg-slate-200">
+      <div class="border-cyan-900 border-solid border-2  bg-white square rounded-lg p-4 hover:bg-slate-200">
         <p class="text-sm mb-2">Ateliers en 2024</p>
         <p class="text-2xl font-bold  mb-2"><%= @activities.count %></p>
         <div class="flex justify-between">
@@ -25,7 +25,7 @@
       </div>
       <% end %>
           <%= link_to "/partners/" do %>
-            <div class="border-cyan-900 border-solid border-2 shadow-2xl bg-white square rounded-lg p-4 hover:bg-slate-200">
+            <div class="border-cyan-900 border-solid border-2 bg-white square rounded-lg p-4 hover:bg-slate-200">
         <p class="text-sm mb-2">Voir les partenaires</p>
         <p class="text-2xl font-bold  mb-2"><%= @partners.count %></p>
         <div class="flex justify-between">
@@ -47,7 +47,7 @@
 
         <div class="flex justify-between">
       <%= link_to "/seniors/" do %>
-      <div class="border-cyan-900 border-solid border-2 mb-4 shadow-2xl bg-white square rounded-lg p-4 hover:bg-slate-200">
+      <div class="border-cyan-900 border-solid border-2 mb-4 bg-white square rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
         <p class="text-sm mb-2">Seniors en 2024</p>
         <p class="text-2xl font-bold  mb-2"><%= @seniors.count %></p>
         <div class="flex justify-between">
@@ -65,7 +65,7 @@
       </div>
       <% end %>
 
-            <div class="border-cyan-900 border-solid border-2 mb-4 shadow-2xl bg-white square rounded-lg p-4 hover:bg-slate-200">
+            <div class="border-cyan-900 border-solid border-2 mb-4 bg-white square rounded-lg p-4 hover:bg-slate-200 mt-[-20px]">
         <p class="text-sm mb-2">Nombre de participations</p>
         <p class="text-2xl font-bold  mb-2">INT</p>
         <div class="flex justify-between">
@@ -96,7 +96,7 @@
     <%= content_tag(:div, class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white") do %>
     <p>Exporter les données</p>
       <%= content_tag(:svg, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24") do %>
-        <%= content_tag(:path, "", d: "M11.1 16.5H12.9V12.9H16.5V11.1H12.9V7.5H11.1V11.1H7.5V12.9H11.1V16.5ZM12 21C10.755 21 9.585 20.7636 8.49 20.2908C7.395 19.8186 6.4425 19.1775 5.6325 18.3675C4.8225 17.5575 4.1814 16.605 3.7092 15.51C3.2364 14.415 3 13.245 3 12C3 10.755 3.2364 9.585 3.7092 8.49C4.1814 7.395 4.8225 6.4425 5.6325 5.6325C6.4425 4.8225 7.395 4.1811 8.49 3.7083C9.585 3.2361 10.755 3 12 3C13.245 3 14.415 3.2361 15.51 3.7083C16.605 4.1811 17.5575 4.8225 18.3675 5.6325C19.1775 6.4425 19.8186 7.395 20.2908 8.49C20.7636 9.585 21 10.755 21 12C21 13.245 20.7636 14.415 20.2908 15.51C19.8186 16.605 19.1775 17.5575 18.3675 18.3675C17.5575 19.1775 16.605 19.8186 15.51 20.2908C14.415 20.7636 13.245 21 12 21ZM12 19.2C14.01 19.2 15.7125 18.5025 17.1075 17.1075C18.5025 15.7125 19.2 14.01 19.2 12C19.2 9.99 18.5025 8.2875 17.1075 6.8925C15.7125 5.4975 14.01 4.8 12 4.8C9.99 4.8 8.2875 5.4975 6.8925 6.8925C5.4975 8.2875 4.8 9.99 4.8 12C4.8 14.01 5.4975 15.7125 6.8925 17.1075C8.2875 18.5025 9.99 19.2 12 19.2Z", fill: "white") %>
+        <%= content_tag(:path, "", d: "M4.8 19.4C4.305 19.4 3.88125 19.2238 3.52875 18.8713C3.17625 18.5188 3 18.095 3 17.6V6.8C3 6.305 3.17625 5.88125 3.52875 5.52875C3.88125 5.17625 4.305 5 4.8 5H9.3V6.8H4.8V17.6H19.2V6.8H14.7V5H19.2C19.695 5 20.1187 5.17625 20.4713 5.52875C20.8237 5.88125 21 6.305 21 6.8V17.6C21 18.095 20.8237 18.5188 20.4713 18.8713C20.1187 19.2238 19.695 19.4 19.2 19.4H4.8ZM12 15.26L7.5 10.76L8.76 9.5L11.1 11.84V5H12.9V11.84L15.24 9.5L16.5 10.76L12 15.26Z", fill: "white") %>
       <% end %>
     <% end %>
   <% end %>
