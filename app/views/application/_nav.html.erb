@@ -1,7 +1,18 @@
- <nav role="navigation">
-    <ul class="flex justify-between">
-        <li><%= link_to "Accueil", root_path %></li>
-        <li><%= link_to "Ajouter", add_page_path %></li>
-        <li><%= link_to "Profil", "users/edit" %></li>
+ <nav role="navigation" class="text-white h-16 w-full color-blue justify-center">
+    <ul class="flex justify-center  ">
+
+        <li class="flex flex-col items-center">
+
+            <%= link_to "Accueil", root_path %>
+
+        </li>
+
+        <li class="flex flex-col items-center">
+
+        <%= link_to "Ajouter", add_page_path %></li>
+
+        <li class="flex flex-col items-center"><%= link_to "Profil", "users/edit" %>
+
+        </li>
     </ul>
  </nav>
