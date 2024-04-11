@@ -18,7 +18,9 @@
     <%= javascript_include_tag "application" %>
     <div class="flex flex-col w-72 ml-auto mr-auto gap-5 mt-16 z-10 relative">
        <%= yield%>
-       <%= render 'nav' %>
+       <% if user_signed_in? %>    
+        <%= render 'nav' %>
+      <% end %>
     </div>
 
   </body>
