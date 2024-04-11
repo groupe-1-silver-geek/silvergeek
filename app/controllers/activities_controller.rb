@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   def show_participations
     @activity = Activity.find(params[:id])
     @participations = @activity.participations
+    @seniors = Senior.find(@participations.map(&:senior_id))
   end
 
 

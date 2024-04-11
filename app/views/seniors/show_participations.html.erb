@@ -1,0 +1,7 @@
+<h1>Participations de <%= @senior.pseudo %></h1>
+
+<% @participations.each do |participation| %>
+    <%= link_to activity_path(participation.activity) do %>
+         <p>Ateliers: <%= participation.activity.name %></p>
+    <% end %>
+<% end %>
