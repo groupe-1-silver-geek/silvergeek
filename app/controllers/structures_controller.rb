@@ -36,7 +36,7 @@ class StructuresController < ApplicationController
         format.html {
           @regions = Region.all
           @partners = Partner.all
-          render :new, status: :unprocessable_entity 
+          render :new, status: :unprocessable_entity
         }
         format.json { render json: @structure.errors, status: :unprocessable_entity }
       end
@@ -58,13 +58,21 @@ class StructuresController < ApplicationController
 
   # DELETE /structures/1 or /structures/1.json
   def destroy
+
+    @structure = Structure.find(params[:id])
+
+    Senior.where(structure_id: @structure.id).destroy_all
+
+    Activity.where(structure_id: @structure.id).destroy_all
+
     @structure.destroy!
 
     respond_to do |format|
-      format.html { redirect_to structures_url, notice: "Structure was successfully destroyed." }
+      format.html { redirect_to structures_url, notice: "La structure a été supprimée avec succès." }
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
