@@ -7,37 +7,28 @@
 
     <div class="field ">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "h-8 pl-0 bg-transparent border-t-transparent border-r-transparent border-l-transparent border-b-orange-600 w-72 mb-4" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email%></div>
     <% end %>
 
     <div class="field">
-      <%= f.label :password %> <br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
+      <%= f.label :Mot_de_passe %> <br />
+      <%= f.password_field :password, placeholder: "Nouveau mot de passe", class: "h-8 pl-0 bg-transparent border-t-transparent border-r-transparent border-l-transparent border-b-orange-600 w-72 mb-4" %>
+
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :Confirmer_le_mot_de_passe %><br />
+      <%= f.password_field :password_confirmation, placeholder: "Confirmer le mot de passe", class: "h-8 pl-0 bg-transparent border-t-transparent border-r-transparent border-l-transparent border-b-orange-600 w-72 mb-6" %>
     </div>
 
-    <div class="field">
-      <%= f.label :current_password %> </i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
 
-    <div class="actions color-blue flex p-4 rounded-lg justify-center items-center text-base text-white">
+    <div class="actions w-72 color-blue flex p-4 rounded-lg justify-center items-center text-base text-white">
       <%= f.submit "Modifier le mot de passe" %>
     </div>
   <% end %>
 
-  <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"bg-orange-600 hover:bg-orange-800 flex p-4 rounded-lg justify-center items-center text-base text-white" %>
-
-  <%= link_to "Back", :back %>
+  <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"w-72 bg-orange-600 hover:bg-orange-800 flex p-4 rounded-lg justify-center items-center text-base text-white" %>
