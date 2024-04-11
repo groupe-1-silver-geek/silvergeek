@@ -10,7 +10,30 @@ class HomeController < ApplicationController
     @partners = @term.blank? ? Partner.all
                              : Partner.where("name ILIKE (?)", "%#{@term}%")
   end
+#ATTENTION PARTICIPATIONS PAS CREEE !!
+  def export_data
+    total_participations = Partner.all.count
+    total_seniors = Senior.all.count
 
+    if total_seniors > 0
+      average_participations_per_senior = total_participations.to_f / total_seniors
+    else
+      average_participations_per_senior = 0
+    end
 
-
+    data = [
+      ["", "Nombre de ... cet année ", "Moyenne sur le mois"],
+      ["Ateliers", Activity.all.count],
+      ["Partenaires", Partner.all.count], 
+      ["Seniors", Senior.all.count, average_participations_per_senior], 
+      ["Participations", Partner.all.count,]
+    ]
+    respond_to do |format|
+      format.csv do
+        filename = ['data', Date.today].join(' ')
+        send_data data.map(&:to_csv).join, filename: filename, content_type: 'text/csv'
+      end
+    end
+  end
+  
 end
