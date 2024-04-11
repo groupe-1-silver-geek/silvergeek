@@ -11,6 +11,12 @@ class ActivitiesController < ApplicationController
     @number_activities = Activity.count
   end
 
+  def show_participations
+    @activity = Activity.find(params[:id])
+    @participations = @activity.participations
+  end
+
+
   # GET /activities/1 or /activities/1.json
   def show
   end
@@ -33,6 +39,10 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
+        senior_ids = params[:activity][:senior_ids] || []
+        senior_ids.each do |senior_id|
+          Participation.create(activity: @activity, senior_id: senior_id)
+        end
         format.html { redirect_to activity_url(@activity), notice: "Activity was successfully created." }
         format.json { render :show, status: :created, location: @activity }
       else
@@ -41,6 +51,7 @@ class ActivitiesController < ApplicationController
           @games = Game.all
           @structures = Structure.accessible_by(current_ability)
           render :new, status: :unprocessable_entity
+          
         }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
@@ -51,6 +62,11 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
+        @activity.participations.destroy_all
+        senior_ids = params[:activity][:senior_ids] || []
+        senior_ids.each do |senior_id|
+          Participation.create(activity: @activity, senior_id: senior_id)
+        end
         format.html { redirect_to activity_url(@activity), notice: "Activity was successfully updated." }
         format.json { render :show, status: :ok, location: @activity }
       else
@@ -81,8 +97,19 @@ class ActivitiesController < ApplicationController
       @activity = Activity.find(params[:id])
     end
 
+    def set_participation
+      @participation = Participation.find(params[:id])
+    end
+
     # Only allow a list of trusted parameters through.
+    def participation_params
+      params.require(:participation).permit(:activity_id, :senior_id)
+    end
+
     def activity_params
       params.require(:activity).permit(:name, :date, :description, :duration, :game_id, :device_id, :structure_id, :otherDevice)
     end
+
+
+
 end

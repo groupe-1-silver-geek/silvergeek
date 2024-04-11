@@ -21,7 +21,7 @@ class ParticipationsController < ApplicationController
 
   # POST /participations or /participations.json
   def create
-    @participation = Participation.new(participation_params)
+    @participation = Participation.new(participation_params)  
 
     respond_to do |format|
       if @participation.save
