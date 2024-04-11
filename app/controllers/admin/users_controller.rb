@@ -28,6 +28,6 @@ class Admin::UsersController < Admin::ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:partner_id)
+        params.require(:user).permit(:partner_id, :partner_admin)
     end
 end

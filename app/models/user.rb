@@ -9,6 +9,10 @@ class User < ApplicationRecord
     self.partner.present?
   end
 
+  def animator?
+    partner? && !partner_admin?
+  end
+
   def pending?
     !admin? && !partner?
   end

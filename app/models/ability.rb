@@ -14,11 +14,13 @@ class Ability
       # User with partner id
       cannot :destroy, Device
       cannot :destroy, Game
-      can :manage, Partner, id: user.partner_id
-      can :manage, Structure, partner_id: user.partner_id
       can :manage, Senior, structure_id: managed_structure_ids(user)
       can :manage, Activity, structure_id: managed_structure_ids(user)
       can :manage, Participation, activity_id: Activity.where(structure_id: managed_structure_ids(user)).pluck(:id)
+      if user.partner_admin?
+        can :manage, Partner, id: user.partner_id
+        can :manage, Structure, partner_id: user.partner_id
+      end
     end
   end
 
