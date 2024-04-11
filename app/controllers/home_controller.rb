@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def export_data
-    total_participations = Partner.all.count
+    total_participations = Participation.all.count
     total_seniors = Senior.all.count
 
     average_participations_per_senior = total_seniors > 0 ? total_participations.to_f / total_seniors : 0
@@ -23,12 +23,12 @@ class HomeController < ApplicationController
       ["Ateliers", Activity.all.count, ""],
       ["Partenaires", Partner.all.count, ""], 
       ["Seniors", Senior.all.count, average_participations_per_senior], 
-      ["Participations", Partner.all.count, ""]
+      ["Participations", Participation.all.count, ""]
     ]
 
     respond_to do |format|
       format.csv do
-        filename = ['data', Date.today].join(' ')
+        filename = "data_#{Date.today.strftime('%Y-%m-%d')}.csv"
         csv_data = CSV.generate do |csv|
           data.each { |row| csv << row }
         end
