@@ -1,6 +1,7 @@
-<%= simple_form_for user do |f| %>
+<%= simple_form_for [:admin, user] do |f| %>
 
-    <%= f.input :email, label: "Email", placeholder: "Email" %>
+    <%= f.input :email, label: "Email", placeholder: "Email", readonly: true, disabled: true %>
+    <%= f.association :partner, label: "Partenaire" %>
 
   <div class="flex justify-between">
     <%= f.button :submit, "Ajouter l'appareil", button_html: { class:'bg-blue-600 flex p-4 rounded-lg justify-center items-center text-base text-white h-12 w-48' } %>

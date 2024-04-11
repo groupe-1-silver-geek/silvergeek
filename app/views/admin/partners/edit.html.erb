@@ -9,7 +9,7 @@
         <% end %>
     <% end %>
 
-  <%= link_to partners_path do %>
+  <%= link_to admin_partners_path do %>
     <p class="ml-2">Retour vers <%= @partner.name %></p>
   <% end %>
 
@@ -21,7 +21,7 @@
 <%= render "form", partner: @partner %>
 
 
-<%= button_to @partner, method: :delete, class: "w-64 bg-orange-500 hover:bg-orange-900 flex p-4 rounded-lg justify-between items-center text-base text-white relative" do %>
+<%= button_to [:admin, @partner], method: :delete, class: "w-64 bg-orange-500 hover:bg-orange-900 flex p-4 rounded-lg justify-between items-center text-base text-white relative" do %>
   <span>Supprimer le partenaire</span>
       <%= content_tag(:svg, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24") do %>
         <%= content_tag(:path, "", d: "M7 21C6.45 21 5.97917 20.8042 5.5875 20.4125C5.19583 20.0208 5 19.55 5 19V6H4V4H9V3H15V4H20V6H19V19C19 19.55 18.8042 20.0208 18.4125 20.4125C18.0208 20.8042 17.55 21 17 21H7ZM17 6H7V19H17V6ZM9 17H11V8H9V17ZM13 17H15V8H13V17Z", fill: "white") %>

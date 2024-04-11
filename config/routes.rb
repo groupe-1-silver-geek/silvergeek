@@ -2,13 +2,15 @@ Rails.application.routes.draw do
   resources :participations
   resources :seniors
   resources :structures
-  resources :partners
   resources :activities
   resources :devices
   resources :games
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-  end
+    resources :partners do
+      get 'show_structures', on: :member
+    end
+end
   get '/export_data', to: 'home#export_data', format: :csv
 
   get 'add_page' => 'pages#add_page', as: :add_page
@@ -23,12 +25,6 @@ Rails.application.routes.draw do
   resources :seniors do
     get 'show_participations', on: :member
   end
-
-  resources :partners do
-    get 'show_structures', on: :member
-  end
-
-  
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

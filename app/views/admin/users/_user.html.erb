@@ -4,5 +4,12 @@
     <%= user.email %>
   </p>
 
+  <% if user.partner.present? %>
+    <p>
+      <strong>Partenaire:</strong>
+      <%= link_to user.partner.name, [:admin, user.partner] %>
+    </p>
+  <% end %>
+
 </div>
 

@@ -5,14 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to :partner, optional: true
 
-
-
-  def admin?
-    self.admin
+  def partner?
+    self.partner.present?
   end
 
-  def partner?
-    self.partner
+  def pending?
+    !admin? && !partner?
   end
 
 end
