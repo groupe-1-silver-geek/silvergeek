@@ -32,3 +32,9 @@ button.text-white{
   color:#FFFF !important;
 
 }
+
+.custom-checkbox {
+  /* Vos styles personnalisés ici */
+  filter: grayscale(100%);
+  /* Ajoutez d'autres styles selon vos besoins */
+}
