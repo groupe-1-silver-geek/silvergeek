@@ -34,7 +34,7 @@ class Admin::PartnersController < Admin::ApplicationController
   def create
     respond_to do |format|
       if @partner.save
-        format.html { redirect_to admin_partner_url(@partner), notice: "Partner was successfully created." }
+        format.html { redirect_to admin_partner_url(@partner), notice: "Partenaire ajouté avec succès." }
         format.json { render :show, status: :created, location: @partner }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -47,7 +47,7 @@ class Admin::PartnersController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @partner.update(partner_params)
-        format.html { redirect_to admin_partner_url(@partner), notice: "Partner was successfully updated." }
+        format.html { redirect_to admin_partner_url(@partner), notice: "Partenaire mis à jour avec succès." }
         format.json { render :show, status: :ok, location: @partner }
       else
         format.html { render :edit, status: :unprocessable_entity }
