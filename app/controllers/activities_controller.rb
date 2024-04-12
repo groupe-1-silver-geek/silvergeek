@@ -43,7 +43,7 @@ class ActivitiesController < ApplicationController
         senior_ids.each do |senior_id|
           Participation.create(activity: @activity, senior_id: senior_id)
         end
-        format.html { redirect_to activity_url(@activity), notice: "Activity was successfully created." }
+        format.html { redirect_to activity_url(@activity), notice: "L'atelier a été ajouté avec succès." }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html {
@@ -67,7 +67,7 @@ class ActivitiesController < ApplicationController
         senior_ids.each do |senior_id|
           Participation.create(activity: @activity, senior_id: senior_id)
         end
-        format.html { redirect_to activity_url(@activity), notice: "Activity was successfully updated." }
+        format.html { redirect_to activity_url(@activity), notice: "L'atelier a été enregistrée avec succès." }
         format.json { render :show, status: :ok, location: @activity }
       else
         format.html {
@@ -86,7 +86,7 @@ class ActivitiesController < ApplicationController
     @activity.destroy!
 
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: "Activity was successfully destroyed." }
+      format.html { redirect_to activities_url, notice: "L'atelier a été supprimée avec succès." }
       format.json { head :no_content }
     end
   end

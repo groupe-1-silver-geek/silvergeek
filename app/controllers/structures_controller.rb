@@ -38,7 +38,7 @@ class StructuresController < ApplicationController
     @structure.partner = current_user.partner unless current_user.admin?
     respond_to do |format|
       if @structure.save
-        format.html { redirect_to structure_url(@structure), notice: "Structure was successfully created." }
+        format.html { redirect_to structure_url(@structure), notice: "La structure a été ajoutée avec succès." }
         format.json { render :show, status: :created, location: @structure }
       else
         format.html {
@@ -55,7 +55,7 @@ class StructuresController < ApplicationController
   def update
     respond_to do |format|
       if @structure.update(structure_params)
-        format.html { redirect_to structure_url(@structure), notice: "Structure was successfully updated." }
+        format.html { redirect_to structure_url(@structure), notice: "La structure a été modifiée avec succès." }
         format.json { render :show, status: :ok, location: @structure }
       else
         format.html { render :edit, status: :unprocessable_entity }
