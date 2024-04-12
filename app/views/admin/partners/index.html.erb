@@ -3,40 +3,21 @@
 
 <div class="flex flex-col w-72  ml-auto mr-auto gap-5  z-10 relative  ">
 
-<%
-=begin%>
-  RETOUR VERS LA PAGE ULTERIEURE
-<%
-=end%>
-
-
-<div class="flex">
-
-  <%= link_to "/" do %>
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="hover:cursor-pointer">
-    <path d="M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z" fill="#191919"/>
-  </svg>
+<div class="flex ">
+  <%= link_to root_path do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="hover:cursor-pointer">
+      <path d="M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z" fill="#191919"/>
+    </svg>
   <% end%>
-
+  <%= link_to root_path do %>
   <p class="ml-2">Retour vers le dashboard</p>
-
+  <% end%>
 </div>
 
-<%
-=begin%>
-  TITRE DE LA PAGE
-<%
-=end%>
 
   <h1 class="text-3xl font-roboto font-bold">
     Partenaires
   </h1>
-
-<%
-=begin%>
-  Barre de recherche
-<%
-=end%>
 
 
   <form class="flex items-center" target="" method="">
