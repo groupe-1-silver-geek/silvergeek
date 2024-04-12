@@ -2,7 +2,9 @@ class Admin::UsersController < Admin::ApplicationController
     before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     def index
-        @users = User.all
+        @usersAnimator = User.all.select(&:animator?)
+        @usersPending = User.all.select(&:pending?)
+        @usersPartner = User.all.select(&:partner?)
     end
 
     def show

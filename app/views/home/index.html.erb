@@ -101,14 +101,13 @@
 
     </div>
   </section>
-
-
-          <%= link_to admin_users_path, class: "border-cyan-900 border-solid border-2 bg-white hover:bg-slate-200 flex p-4 rounded-lg justify-between items-center text-base text-black" do %>
-              <p>Gérer les utilisateurs</p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3L10.4138 4.58625L16.6912 10.875H3V13.125H16.6912L10.4138 19.4137L12 21L21 12L12 3Z" fill="#191919"/>
-              </svg>
-          <% end %>
+  
+      <%= link_to admin_users_path, class: "border-cyan-900 border-solid border-2 bg-white hover:bg-slate-200 flex p-4 rounded-lg justify-between items-center text-base text-black" do %>
+          <p>Gérer les utilisateurs</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3L10.4138 4.58625L16.6912 10.875H3V13.125H16.6912L10.4138 19.4137L12 21L21 12L12 3Z" fill="#191919"/>
+          </svg>
+      <% end %>
 
   <% unless current_user.partner_admin? || current_user.partner? %>
     <%= link_to export_data_path(format: :csv), class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white mb-32" do %>

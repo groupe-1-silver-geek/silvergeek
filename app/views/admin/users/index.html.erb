@@ -1,29 +1,66 @@
 <p style="color: green"><%= notice %></p>
 
+<div class="flex ">
+  <%= link_to root_path do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="hover:cursor-pointer">
+      <path d="M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z" fill="#191919"/>
+    </svg>
+  <% end%>
+  <%= link_to root_path do %>
+  <p class="ml-2">Retour vers le dashboard</p>
+  <% end%>
+</div>
 
-<div class="flex flex-col w-72  ml-auto mr-auto gap-5 mt-16 z-10 relative  ">
-
-
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-  <path d="M12 3L13.5862 4.58625L7.30875 10.875H21V13.125H7.30875L13.5862 19.4137L12 21L3 12L12 3Z" fill="#191919"/>
-</svg>
 
 <div class="flex flex-col justify-between">
 
   <h1 class="text-3xl font-bold">
     Utilisateurs
   </h1>
-  <p>Consultez les demandes de création de comptes, attribuez un partenaire ou modifiez les informations des utilisateurs.</p>
+  <p class="text-sm">Consultez les demandes de création de comptes, attribuez un partenaire ou modifiez les informations des utilisateurs.</p>
 
 </div>
 <input class="border-none h-14 w-72 bg-white rounded-lg p-2 placeholder:text-blue-900 placeholder:text-base " type="search" placeholder="Rechercher un compte">
 
 <div id="users">
   
-  <p>Utilisateurs validés</p>
-  <% @users.each do |user| %>
-      <br>
-      <%= link_to user.email, edit_admin_user_path(user), class: "bg-white rounded-lg p-2 my-8 h-14 w-72 border-cyan-900 border-solid border-2" %>
-      <br>
-  <% end %>
-</div>
+  <div class="my-4">
+    <h2 class="text-xl font-semibold">Utilisateurs en attente</h2>
+    <% if @usersPending.any? %>
+      <% @usersPending.each do |user| %>
+        <br>
+        <%= link_to user.email, edit_admin_user_path(user), class: "bg-white rounded-lg p-2 my-8 h-14 w-72 border-cyan-900 border-solid border-2" %>
+        <br>
+      <% end %>
+    <% else %>
+      <p class="italic my-4">Aucun utilisateur en attente</p>
+    <% end %>
+  </div>
+
+
+  <div class="my-4">
+    <h2 class="text-xl font-semibold">Responsables partenaires</h2>
+    <% if @usersPartner.any? %>
+      <% @usersPartner.each do |user| %>
+        <br>
+        <%= link_to user.email, edit_admin_user_path(user), class: "bg-white rounded-lg p-2 my-8 h-14 w-72 border-cyan-900 border-solid border-2" %>
+        <br>
+      <% end %>
+    <% else %>
+      <p class="italic my-4">Aucun partenaire</p>
+    <% end %>
+  </div>
+
+  <div class="my-4">
+    <h2 class="text-xl font-semibold">Animateur</h2>
+    <% if @usersAnimator.any? %>
+      <% @usersAnimator.each do |user| %>
+        <br>
+        <%= link_to user.email, edit_admin_user_path(user), class: "bg-white rounded-lg p-2 my-8 h-14 w-72 border-cyan-900 border-solid border-2" %>
+        <br>
+      <% end %>
+    <% else %>
+      <p class="italic my-4">Aucun animateur</p>
+    <% end %>
+  </div>
+
