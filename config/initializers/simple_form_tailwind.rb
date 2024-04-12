@@ -3,7 +3,7 @@
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Default class for buttons
-  config.button_class = 'color-blue w-64 flex p-4 rounded-lg justify-between items-center text-base text-white mb-32'
+  config.button_class = 'color-blue w-64 flex p-4 rounded-lg justify-between items-center text-base text-white '
 
   # Define the default class of the input wrapper of the boolean input.
   config.boolean_label_class = ''
