@@ -3,8 +3,8 @@
 <%= render @user %>
 
 <div>
-  <%= link_to "Edit this user", edit_admin_user_path(@user) %> |
-  <%= link_to "Back to users", admin_users_path %>
+  <%= link_to "Modifier l'utilisateur", edit_admin_user_path(@user),class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white  mb-2" %>
+  <%= link_to "Retour aux utilisateurs", admin_users_path, class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white  mb-2" %>
 
-  <%= button_to "Destroy this user", [:admin, @user], method: :delete, data: { confirm: "Êtes-vous sûr(e) ?" } %>
+  <%= button_to "Supprimer cet utilisateur", [:admin, @user], method: :delete, data: { confirm: "Êtes-vous sûr(e) ?" }, class: "bg-orange-600 flex p-4 rounded-lg justify-between items-center text-base text-white  mb-2"%>
 </div>
