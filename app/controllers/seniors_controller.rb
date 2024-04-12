@@ -33,7 +33,7 @@ class SeniorsController < ApplicationController
 
     respond_to do |format|
       if @senior.save
-        format.html { redirect_to senior_url(@senior), notice: "Senior was successfully created." }
+        format.html { redirect_to senior_url(@senior), notice: "Le sénior a été ajouté avec succès." }
         format.json { render :show, status: :created, location: @senior }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +46,7 @@ class SeniorsController < ApplicationController
   def update
     respond_to do |format|
       if @senior.update(senior_params)
-        format.html { redirect_to senior_url(@senior), notice: "Senior was successfully updated." }
+        format.html { redirect_to senior_url(@senior), notice: "Le sénior a été modifié avec succès." }
         format.json { render :show, status: :ok, location: @senior }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class SeniorsController < ApplicationController
     @senior.destroy!
 
     respond_to do |format|
-      format.html { redirect_to seniors_url, notice: "Senior was successfully destroyed." }
+      format.html { redirect_to seniors_url, notice: "Le sénior a été supprimé avec succès." }
       format.json { head :no_content }
     end
   end

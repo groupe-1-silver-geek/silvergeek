@@ -29,7 +29,7 @@ class DevicesController < ApplicationController
 
     respond_to do |format|
       if @device.save
-        format.html { redirect_to device_url(@device), notice: "Device was successfully created." }
+        format.html { redirect_to device_url(@device), notice: "L'appareil a été ajouté avec succès." }
         format.json { render :show, status: :created, location: @device }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class DevicesController < ApplicationController
   def update
     respond_to do |format|
       if @device.update(device_params)
-        format.html { redirect_to device_url(@device), notice: "Device was successfully updated." }
+        format.html { redirect_to device_url(@device), notice: "L'appareil a été modifié avec succès." }
         format.json { render :show, status: :ok, location: @device }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class DevicesController < ApplicationController
     @device.destroy!
 
     respond_to do |format|
-      format.html { redirect_to devices_url, notice: "Device was successfully destroyed." }
+      format.html { redirect_to devices_url, notice: "L'appareil a été supprimé avec succès." }
       format.json { head :no_content }
     end
   end
