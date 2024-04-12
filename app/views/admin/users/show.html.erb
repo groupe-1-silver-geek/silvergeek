@@ -8,7 +8,11 @@
         <% end %>
       <% end %>
 
+<% if @user.partner? %>
       <h1 class="text-3xl font-gobold font-bold">Responsable partenaire</h1>
+    <% else %>
+      <h1 class="text-3xl font-gobold font-bold">Animateur</h1>
+<% end %>
       <h2 class="text-xl font-gobold font-bold"><%= @user.partner.name %></h2>
       <h3 class="text-sm text-zinc-800	mt-[-14px]"><%= @user.email %></h3>
 
