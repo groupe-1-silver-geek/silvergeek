@@ -52,7 +52,7 @@
         <div class="border-cyan-900 border-solid border-2 text-base  bg-white rounded-lg p-2 h-14 justify-between flex items-center hover:bg-slate-200 mb-4">
           <div class="flex-col">
           <div class="text-xs text-gray-500">
-            <%= activity.date %>
+            <%= activity.date.strftime("%d/%m/%Y") %>
           </div>
           <div class="text-base">
             <%= activity.name %>
