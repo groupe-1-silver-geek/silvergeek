@@ -110,7 +110,7 @@
               </svg>
           <% end %>
 
-<% unless current_user.animator?  %>
+  <% unless current_user.partner_admin? || current_user.partner? %>
     <%= link_to export_data_path(format: :csv), class: "color-blue flex p-4 rounded-lg justify-between items-center text-base text-white mb-32" do %>
       <p>Exporter les données</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
