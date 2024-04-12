@@ -3,8 +3,8 @@
 <%= render @participation %>
 
 <div>
-  <%= link_to "Edit this participation", edit_participation_path(@participation) %> |
-  <%= link_to "Back to participations", participations_path %>
+  <%= link_to "Modifier la participation", edit_participation_path(@participation) %> |
+  <%= link_to "Retourner vers les participations", participations_path %>
 
-  <%= button_to "Destroy this participation", @participation, method: :delete %>
+  <%= button_to "Détruire la participation", @participation, method: :delete %>
 </div>

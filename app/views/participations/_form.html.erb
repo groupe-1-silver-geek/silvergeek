@@ -1,5 +1,5 @@
 <%= simple_form_for participation do |f| %>
-  <%= f.association :activity, label: "Activité", placeholder: "Activité" %>
+  <%= f.association :activity, label: "Atelier", placeholder: "Atelier" %>
   <%= f.association :senior, label: "Senior", collection: Senior.all.map { |senior| [senior.pseudo, senior.id] }, include_blank: "Sélectionnez un senior" %>
 
   <div class="flex justify-between">
