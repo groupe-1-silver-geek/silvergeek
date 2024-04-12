@@ -2,7 +2,7 @@
   <%= simple_form_for(activity) do |f| %>
 
     <%= f.input :name, label: "Nom", placeholder: "Nom"%>
-    <%= f.input :date, label: "Date", placeholder: "Date", as: :date, order:[:day,:month,:year], wrapper_html: { class: "grid grid-cols-1 gap-y-4" } %>
+    <%= f.input :date, label: "Date", placeholder: "Date", as: :date, html5: true, order:[:day,:month,:year], wrapper_html: { class: "grid grid-cols-1 gap-y-4" } %>
     <%= f.input :description, label: "Description", placeholder: "Description" %>
     <%= f.input :duration, label: "Durée", placeholder: "Durée" %>
     <%= f.association :game, label: "Jeu"%>
